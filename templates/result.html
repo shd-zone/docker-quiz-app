@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result ❤️</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🎉 Quiz Completed 🎉</h1>
+
+    <h2>Your Score</h2>
+
+    <h1>{{ score }}/{{ total }}</h1>
+
+    <h2>{{ percentage }}%</h2>
+
+    {% if percentage >= 80 %}
+        <h2>😍 Wow! You know Cutie really well! ❤️</h2>
+
+    {% elif percentage >= 50 %}
+        <h2>😊 Nice! You're getting to know Cutie.</h2>
+
+    {% else %}
+        <h2>😂 Better luck next time!</h2>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/">
+        <button class="start-btn">Play Again 💕</button>
+    </a>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

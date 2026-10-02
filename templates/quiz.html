@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flirty Quiz 💖</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>💖 Flirty Quiz For Cutie 💖</h1>
+
+    <form action="/result" method="POST">
+
+        {% for q in questions %}
+        {% set q_index = loop.index0 %}
+        <div class="question-box">
+
+            <h3>Q{{ loop.index }}. {{ q.question }}</h3>
+
+            {% for option in q.options %}
+            <label>
+                <input type="radio"
+                       name="q{{ q_index }}"
+                       value="{{ option }}"
+                       required>
+                {{ option }}
+            </label>
+
+            <br><br>
+            {% endfor %}
+
+        </div>
+
+        <br>
+        {% endfor %}
+
+        <button type="submit" class="start-btn">
+            Submit Quiz ❤️
+        </button>
+
+    </form>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

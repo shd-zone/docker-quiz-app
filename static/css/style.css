@@ -1,0 +1,189 @@
+/* --- Global Styles --- */
+:root {
+    --bg-color: #0f172a; /* Deep dark blue-black */
+    --primary-neon: #ff2a6d; /* Vivid Pink */
+    --secondary-neon: #05d9e8; /* Bright Cyan */
+    --text-color: #f1f5f9;
+    --card-bg: rgba(30, 41, 59, 0.7); /* Translucent Blue-Gray */
+    --shadow-neon: 0 0 15px rgba(255, 42, 109, 0.6);
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Use a modern font from Google Fonts */
+}
+
+body {
+    background: var(--bg-color);
+    background-image: 
+        linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+        url('https://images.unsplash.com/photo-1520038410233-7141be7e6f97?q=80&w=2070'); /* Dynamic background pattern */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Add Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- Container --- */
+.container {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 700px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+/* --- Typography --- */
+h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    text-shadow: var(--shadow-neon);
+}
+
+h1 .emoji {
+    filter: drop-shadow(0 0 5px var(--primary-neon));
+}
+
+h3 {
+    color: var(--secondary-neon);
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* --- Form & Questions --- */
+.question-box {
+    text-align: left;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    transition: all var(--transition-speed);
+}
+
+.question-box:hover {
+    border-color: rgba(5, 217, 232, 0.3);
+    box-shadow: 0 0 10px rgba(5, 217, 232, 0.1);
+}
+
+/* --- Custom Radio Buttons (Graphics Upgrade) --- */
+label {
+    display: block;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    transition: background var(--transition-speed);
+}
+
+label:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #334155;
+    margin: 0 10px 0 0;
+    font: inherit;
+    color: var(--primary-neon);
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transform: translateY(3px);
+    display: inline-grid;
+    place-content: center;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.2s transform ease-in-out;
+    box-shadow: inset 1em 1em var(--primary-neon);
+}
+
+input[type="radio"]:checked {
+    border-color: var(--primary-neon);
+    background-color: transparent;
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.5);
+}
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+/* --- Buttons (Neon Effect) --- */
+.start-btn {
+    background: transparent;
+    border: 2px solid var(--primary-neon);
+    color: var(--primary-neon);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all var(--transition-speed);
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: var(--shadow-neon);
+}
+
+.start-btn:hover {
+    background: var(--primary-neon);
+    color: var(--bg-color);
+    box-shadow: 0 0 30px rgba(255, 42, 109, 0.8);
+}
+
+/* --- Result Page Styling --- */
+.score-box {
+    margin: 30px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(5, 217, 232, 0.1);
+    border: 1px solid var(--secondary-neon);
+}
+
+.percentage {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* --- Transitions --- */
+.container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
